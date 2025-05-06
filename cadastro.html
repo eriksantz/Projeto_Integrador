@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .left {
+      flex: 1;
+      background: #843af3 url('sua-imagem.png') no-repeat center center;
+      background-size: cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .left h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .right {
+      flex: 1;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #843af3;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #843af3;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #6e2bd6;
+    }
+
+    #campos_gestor {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h1>Crie sua conta gratuita</h1>
+      <p>Explore recursos do nosso sistema para indivíduos e organizações.</p>
+    </div>
+    <div class="right">
+      <form action="cadastro.php" method="POST">
+        <label for="tipo_usuario">Você está se cadastrando como:</label>
+        <select name="tipo_usuario" id="tipo_usuario" onchange="mostrarCamposGestor()" required>
+          <option value="Cliente">Cliente</option>
+          <option value="Gestor">Gestor</option>
+        </select>
+
+        <label for="nome">Nome completo</label>
+        <input type="text" name="nome" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" required>
+
+        <div id="campos_gestor">
+          <label for="empresa">Nome da empresa</label>
+          <input type="text" name="empresa">
+        </div>
+
+        <button type="submit">Criar conta</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function mostrarCamposGestor() {
+      const tipo = document.getElementById("tipo_usuario").value;
+      const camposGestor = document.getElementById("campos_gestor");
+      camposGestor.style.display = tipo === "Gestor" ? "block" : "none";
+    }
+  </script>
+</body>
+</html>
