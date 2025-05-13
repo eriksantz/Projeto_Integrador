@@ -155,6 +155,30 @@
             z-index: 10;
             color: #843af3;
         }
+
+        .menu-item .text {
+            letter-spacing: 0.001em;
+        }
+
+        .clientes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.cliente-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cliente-card:hover {
+    transform: scale(1.02);
+}
+
     </style>
 </head>
 
@@ -165,20 +189,16 @@
                 <img src="imagens/logo_GAD_PAINEL.png" alt="Logo" style="width: 80%; height: auto;" />
             </div>
             <nav class="menu">
-                <a href="#" class="menu-item active"><span class="material-symbols-rounded">phone</span><span
+                <a href="#" class="menu-item active"><span class="material-symbols-rounded">space_dashboard</span><span
                         class="text">Visão Geral</span></a>
-                <a href="#" class="menu-item"><span class="material-symbols-rounded">bar_chart</span><span
-                        class="text">Indicadores</span></a>
-                <a href="#" class="menu-item"><span class="material-symbols-rounded">receipt_long</span><span
-                        class="text">Pedidos</span></a>
-                <a href="#" class="menu-item"><span class="material-symbols-rounded">inventory_2</span><span
-                        class="text">Produtos</span></a>
+                <a href="#" class="menu-item"><span class="material-symbols-rounded">forward_to_inbox</span><span
+                        class="text">Criar convite</span></a>
+                <a href="#" class="menu-item"><span class="material-symbols-rounded">Person</span><span
+                        class="text">Perfil</span></a>
                 <a href="#" class="menu-item"><span class="material-symbols-rounded">settings</span><span
                         class="text">Configurações</span></a>
                 <a href="#" class="menu-item"><span class="material-symbols-rounded">group</span><span
                         class="text">Usuários</span></a>
-                <a href="#" class="menu-item"><span class="material-symbols-rounded">satellite_alt</span><span
-                        class="text">Monitoramento</span></a>
                 <a href="#" class="menu-item"><span class="material-symbols-rounded">help</span><span
                         class="text">Ajuda</span></a>
             </nav>
@@ -190,14 +210,25 @@
                     <span class="material-symbols-rounded" id="iconToggle">chevron_left</span>
                 </button>
                 <h1>Visão Geral</h1>
-                <input type="text" placeholder="O que você está procurando?" />
                 <div class="user-info">
                     <span>João Silva</span>
                     <div class="avatar"></div>
                 </div>
             </header>
             <section class="content"></section>
+
+            <section class="clientes-grid">
+              
+                <div class="cliente-card" onclick="abrirPostagem(clienteId)">
+                    <h3>Cliente: Padaria Rosa</h3>
+                    <p>Última postagem: 09/05</p>
+                    <p>Status: Ativo</p>
+                </div>
+               
+            </section>
         </main>
+
+
     </div>
 
     <script>

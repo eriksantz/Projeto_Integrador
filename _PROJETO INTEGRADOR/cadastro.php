@@ -1,33 +1,25 @@
 <?php
-$host = "localhost";
-$db = "meubanco";
-$user = "root";
-$pass = "";
+require 'conexao.php';
 
-$conn = new mysqli($host, $user, $pass, $db);
-
-if ($conn->connect_error) {
-    die("Erro na conexão: " . $conn->connect_error);
-}
-
+$tipo = $_POST['tipo_usuario'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
-$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Criptografar a senha
-$tipo_usuario = $_POST['tipo_usuario'];
-$empresa = isset($_POST['empresa']) ? $_POST['empresa'] : null;
+$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO usuarios (nome, email, senha, tipo_usuario, empresa)
-        VALUES (?, ?, ?, ?, ?)";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("sssss", $nome, $email, $senha, $tipo_usuario, $empresa);
-
-if ($stmt->execute()) {
-    echo "Conta criada com sucesso!";
+if ($tipo === 'Gestor') {
+  $cnpj = $_POST['empresa'] ?? '';
+  $sql = "INSERT INTO gestores (nome, email, senha, cnpj) VALUES (?, ?, ?, ?)";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([$nome, $email, $senha, $cnpj]);
+  header("Location: login.html?email=" . urlencode($email));
+  exit;
+} elseif ($tipo === 'Cliente') {
+  $sql = "INSERT INTO clientes (nome, email, senha) VALUES (?, ?, ?)";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([$nome, $email, $senha]);
+  header("Location: login.html?email=" . urlencode($email));
+  exit;
 } else {
-    echo "Erro ao criar conta: " . $stmt->error;
+  echo "Tipo de usuário inválido.";
 }
-
-$stmt->close();
-$conn->close();
 ?>
