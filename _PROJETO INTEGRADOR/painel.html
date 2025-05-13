@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar Responsiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f5f6fa;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background: #843af3;
+            color: white;
+            transition: width 0.3s ease;
+            overflow: hidden;
+            padding: 1.5rem 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-top-right-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+        }
+
+        .sidebar.expanded {
+            width: 250px;
+            align-items: flex-start;
+            padding-left: 1.5rem;
+        }
+
+        .sidebar.collapsed {
+            width: 70px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .sidebar.collapsed .logo {
+            opacity: 0;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 1rem;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 1rem;
+            color: white;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-item.active {
+            background: white;
+            color: #843af3;
+            font-weight: 600;
+        }
+
+        .material-symbols-rounded {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .text {
+            transition: opacity 0.2s;
+        }
+
+        .sidebar.collapsed .text {
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            flex: 1;
+        }
+
+        .header input {
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid #ccc;
+            width: 300px;
+            margin: 0 1rem;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: #ccc;
+            border-radius: 50%;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            z-index: 10;
+            color: #843af3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar expanded" id="sidebar">
+            <div class="logo">
+                <img src="imagens/logo_GAD_PAINEL.png" alt="Logo" style="width: 80%; height: auto;" />
+            </div>
+            <nav class="menu">
+                <a href="#" class="menu-item active"><span class="material-symbols-rounded">phone</span><span
+                        class="text">Visão Geral</span></a>
+                <a href="#" class="menu-item"><span class="material-symbols-rounded">bar_chart</span><span
+                        class="text">Indicadores</span></a>
+                <a href="#" class="menu-item"><span class="material-symbols-rounded">receipt_long</span><span
+                        class="text">Pedidos</span></a>
+                <a href="#" class="menu-item"><span class="material-symbols-rounded">inventory_2</span><span
+                        class="text">Produtos</span></a>
+                <a href="#" class="menu-item"><span class="material-symbols-rounded">settings</span><span
+                        class="text">Configurações</span></a>
+                <a href="#" class="menu-item"><span class="material-symbols-rounded">group</span><span
+                        class="text">Usuários</span></a>
+                <a href="#" class="menu-item"><span class="material-symbols-rounded">satellite_alt</span><span
+                        class="text">Monitoramento</span></a>
+                <a href="#" class="menu-item"><span class="material-symbols-rounded">help</span><span
+                        class="text">Ajuda</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <button id="toggleBtn" class="toggle-btn">
+                    <span class="material-symbols-rounded" id="iconToggle">chevron_left</span>
+                </button>
+                <h1>Visão Geral</h1>
+                <input type="text" placeholder="O que você está procurando?" />
+                <div class="user-info">
+                    <span>João Silva</span>
+                    <div class="avatar"></div>
+                </div>
+            </header>
+            <section class="content"></section>
+        </main>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebar = document.getElementById('sidebar');
+        const iconToggle = document.getElementById('iconToggle');
+
+        function updateIcon() {
+            iconToggle.textContent = sidebar.classList.contains('collapsed') ? 'menu' : 'chevron_left';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            sidebar.classList.toggle('expanded');
+            updateIcon();
+        });
+
+        updateIcon();
+    </script>
+</body>
+
+</html>

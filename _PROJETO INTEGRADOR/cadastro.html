@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Cadastro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -11,7 +13,8 @@
       padding: 0;
     }
 
-    body, html {
+    body,
+    html {
       height: 100%;
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
@@ -22,44 +25,44 @@
     }
 
     .left {
-  flex: 1;
-  background: linear-gradient(135deg, #893AE2, #7E2CEB);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+      flex: 1;
+      background: linear-gradient(135deg, #893AE2, #7E2CEB);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-.left::before {
-  content: '';
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: #A043F4;
-  transform: rotate(36deg);
-  border-radius: 20px;
-  opacity: 0.4;
-}
+    .left::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: #A043F4;
+      transform: rotate(36deg);
+      border-radius: 20px;
+      opacity: 0.4;
+    }
 
-.green-bar {
-  width: 60px;
-  background-color: #4ce68b;
-  height: 100%;
-  position: absolute;
-  left: 0;
-}
+    .green-bar {
+      width: 60px;
+      background-color: #4ce68b;
+      height: 100%;
+      position: absolute;
+      left: 0;
+    }
 
-.left::after {
-  content: '';
-  position: absolute;
-  background: url('cadastrofigura.png') no-repeat left bottom;
-  background-size: 80%;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
+    .left::after {
+      content: '';
+      position: absolute;
+      background: url('imagens/cadastrofigura.png') no-repeat left bottom;
+      background-size: 80%;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
 
     .right {
       flex: 1;
@@ -99,7 +102,8 @@
       color: #333;
     }
 
-    select, input {
+    select,
+    input {
       width: 100%;
       padding: 10px;
       border: 1px solid #843af3;
@@ -108,7 +112,8 @@
       margin-bottom: 10px;
     }
 
-    input:focus, select:focus {
+    input:focus,
+    select:focus {
       border-color: #4ce68b !important;
       outline: none;
     }
@@ -136,21 +141,24 @@
 
 
     .left-content {
-  position: relative;
-  z-index: 2; /* Fica acima do ::after (imagem) */
-  color: white;
-  padding: 40px;
-  align-self: flex-start; /* Alinha ao topo */
-}
+      position: relative;
+      z-index: 2;
+      /* Fica acima do ::after (imagem) */
+      color: white;
+      padding: 40px;
+      align-self: flex-start;
+      /* Alinha ao topo */
+    }
 
-.left-content h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
+    .left-content h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
 
-.left-content p {
-  font-size: 14px;
-}
+    .left-content p {
+      font-size: 14px;
+    }
+
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -170,8 +178,22 @@
         padding: 20px;
       }
     }
+
+
+    input {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    input::placeholder {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    select#tipo_usuario {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="left">
@@ -229,4 +251,5 @@
     }
   </script>
 </body>
+
 </html>

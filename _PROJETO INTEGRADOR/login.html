@@ -44,7 +44,7 @@
     .left::after {
   content: '';
   position: absolute;
-  background: url('image.psd.png') no-repeat left bottom;
+  background: url('imagens/loginfigura.png') no-repeat left bottom;
   background-size: 80%;
   width: 100%;
   height: 100%;
@@ -63,6 +63,7 @@
 .left-content h1 {
   font-size: 28px;
   margin-bottom: 10px;
+  margin-right: 240px;
 }
 
 .left-content p {
@@ -114,6 +115,14 @@
       margin-bottom: 5px;
       margin-top: 15px;
       color: #333;
+    }
+
+
+    input {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    input::placeholder {
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     select, input {
@@ -184,6 +193,11 @@
         padding: 20px;
       }
     }
+
+    select#tipo_usuario {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
   </style>
 </head>
 <body>
@@ -210,10 +224,10 @@
         </select>
 
         <label for="email">Email</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" placeholder="Digite seu email" required>
 
         <label for="senha">Senha</label>
-        <input type="password" name="senha" required>
+        <input type="password" name="senha" placeholder="Digite sua senha" required>
 
         <button type="submit">Entrar</button>
 
