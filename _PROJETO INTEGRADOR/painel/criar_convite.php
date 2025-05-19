@@ -252,13 +252,16 @@ $nome = $_SESSION['nome'];
 
         .modal-section {
             background: #fff;
-            padding: 2rem;
+            width: 500px;
+            height: 200px;
+            padding: 0rem;
             border-radius: 1rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 2rem
+            justify-content: center;
+            margin: 2rem auto 0 auto;
         }
 
         .modal-section .material-symbols-rounded {
@@ -270,7 +273,8 @@ $nome = $_SESSION['nome'];
         .modal-section .button-container {
             display: flex;
             justify-content: center;
-            width: 100%
+            width: 100%;
+            margin-top: 1rem;
         }
 
         .modal-section button {
@@ -279,19 +283,20 @@ $nome = $_SESSION['nome'];
             background: #843af3;
             color: #fff;
             border: none;
-            border-radius: .8rem;
+            border-radius: 999px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             cursor: pointer;
-            transition: transform .15s
+            transition: background-color 0.3s;
         }
 
         .modal-section button:hover {
-            transform: scale(1.04)
+            background-color: #4ce68b;
         }
 
         .success-message {
             color: green;
             font-weight: 600;
-            margin-top: 1rem
+            margin-top: -1.3rem
         }
 
         .convites-section {

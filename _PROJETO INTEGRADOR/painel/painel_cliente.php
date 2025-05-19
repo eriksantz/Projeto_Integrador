@@ -315,7 +315,7 @@ $nome = $_SESSION['nome'];
             </div>
             <nav class="menu-wrapper">
                 <div class="menu">
-                    <a href="painel_cliente.php" class="menu-item active"><span class="material-symbols-rounded">dashboard</span><span class="text">Visão Geral</span></a>
+                    <a href="painel_cliente.php" class="menu-item active"><span class="material-symbols-rounded">space_dashboard</span><span class="text">Visão Geral</span></a>
 
                     <a href="receber_convite.php" class="menu-item"><span class="material-symbols-rounded">forward_to_inbox</span><span class="text">Convites</span></a>
 
@@ -338,7 +338,7 @@ $nome = $_SESSION['nome'];
                 <button id="toggleBtn" class="toggle-btn">
                     <span class="material-symbols-rounded" id="iconToggle">chevron_left</span>
                 </button>
-                <h1>Bem-vindo(a), <?= htmlspecialchars($nome) ?></h1>
+                <h1>Visão Geral</h1>
                 <div class="user-info">
                     <span><?= htmlspecialchars($nome) ?></span>
                     <div class="avatar"></div>
@@ -347,9 +347,9 @@ $nome = $_SESSION['nome'];
 
             <section class="clientes-grid">
                 <div style="text-align: center; width: 100%; padding: 2rem;">
-                    <img src="../imagens/dashboard_cliente.png" alt="Painel Cliente" style="width: 200px; opacity: 0.6;" />
+                    <img src="../imagens/sem_gestor_feedback.png" alt="Painel Cliente" style="width: 200px; opacity: 0.6;" />
                     <p style="margin-top: 1rem; font-size: 1.1rem; color: #666;">
-                        Aqui você verá suas atualizações, conteúdos recebidos<br> e status dos seus convites.
+                    Você ainda não está vinculado a nenhum gestor.<br> Insira o código de convite para começar.
                     </p>
                 </div>
             </section>

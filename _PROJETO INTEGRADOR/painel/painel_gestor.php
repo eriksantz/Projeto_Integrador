@@ -20,7 +20,7 @@ $nome = $_SESSION['nome'];
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <style>
-               * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -371,35 +371,35 @@ $nome = $_SESSION['nome'];
     </div>
 
     <script>
-    const toggleBtn = document.getElementById('toggleBtn');
-    const sidebar = document.getElementById('sidebar');
-    const iconToggle = document.getElementById('iconToggle');
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebar = document.getElementById('sidebar');
+        const iconToggle = document.getElementById('iconToggle');
 
-    function updateIcon() {
-        iconToggle.textContent = sidebar.classList.contains('collapsed') ? 'menu' : 'chevron_left';
-    }
+        function updateIcon() {
+            iconToggle.textContent = sidebar.classList.contains('collapsed') ? 'menu' : 'chevron_left';
+        }
 
-    
-    const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
-    if (isCollapsed) {
-        sidebar.classList.remove('expanded');
-        sidebar.classList.add('collapsed');
-    } else {
-        sidebar.classList.remove('collapsed');
-        sidebar.classList.add('expanded');
-    }
 
-    updateIcon();
+        const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+        if (isCollapsed) {
+            sidebar.classList.remove('expanded');
+            sidebar.classList.add('collapsed');
+        } else {
+            sidebar.classList.remove('collapsed');
+            sidebar.classList.add('expanded');
+        }
 
-    toggleBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('collapsed');
-        sidebar.classList.toggle('expanded');
-      
-        const currentlyCollapsed = sidebar.classList.contains('collapsed');
-        localStorage.setItem('sidebarCollapsed', currentlyCollapsed);
         updateIcon();
-    });
-</script>
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            sidebar.classList.toggle('expanded');
+
+            const currentlyCollapsed = sidebar.classList.contains('collapsed');
+            localStorage.setItem('sidebarCollapsed', currentlyCollapsed);
+            updateIcon();
+        });
+    </script>
 </body>
 
 </html>

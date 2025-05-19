@@ -368,7 +368,7 @@ $nome = $_SESSION['nome'];
             <nav class="menu-wrapper">
                 <div class="menu">
                     <a href="painel_cliente.php" class="menu-item"><span class="material-symbols-rounded">space_dashboard</span><span class="text">Visão Geral</span></a>
-                    <a href="receber_convite.php" class="menu-item active"><span class="material-symbols-rounded">forward_to_inbox</span><span class="text">Convite</span></a>
+                    <a href="receber_convite.php" class="menu-item active"><span class="material-symbols-rounded">forward_to_inbox</span><span class="text">Convites</span></a>
                     <a href="#" class="menu-item"><span class="material-symbols-rounded">person</span><span class="text">Perfil</span></a>
                     <a href="#" class="menu-item"><span class="material-symbols-rounded">settings</span><span class="text">Configurações</span></a>
                     <a href="#" class="menu-item"><span class="material-symbols-rounded">help</span><span class="text">Ajuda</span></a>
