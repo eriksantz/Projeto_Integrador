@@ -1,0 +1,29 @@
+🧩 Funcionalidade na Visão Geral:
+🔹 Exibição:
+Exiba cards ou pop-ups flutuantes (tipo widgets) de cada cliente ativo.
+
+Cada pop-up deve mostrar um resumo:
+
+Nome do cliente
+
+Última interação / postagem
+
+Status da campanha (ativo, aguardando, concluído)
+
+Ícones de notificação, se houver pendências
+
+🔹 Ações ao clicar no pop-up:
+Abrir uma interface lateral ou modal com:
+
+Perfil completo do cliente
+
+Histórico de postagens / campanhas
+
+Botão “Nova Postagem” (com editor de texto, imagem e agendamento)
+
+Comentários ou observações internas
+
+🔹 Extras úteis no pop-up:
+Botão rápido de “Enviar Mensagem” ao cliente
+
+Indicador visual de engajamento (ex: uma barra de progresso ou estrela)
