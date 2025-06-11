@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="imagens/fav_icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .left {
+      flex: 1;
+      background: linear-gradient(135deg, #893AE2, #7E2CEB);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .left::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: #A043F4;
+      transform: rotate(36deg);
+      border-radius: 20px;
+      opacity: 0.4;
+    }
+
+    .left::after {
+  content: '';
+  position: absolute;
+  background: url('imagens/loginfigura.png') no-repeat left bottom;
+  background-size: 80%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.left-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 40px;
+  align-self: flex-start;
+}
+
+.left-content h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  margin-right: 240px;
+}
+
+.left-content p {
+  font-size: 14px;
+}
+
+
+    .green-bar {
+      width: 60px;
+      background-color: #4ce68b;
+      height: 100%;
+      position: absolute;
+      left: 0;
+    }
+
+    .right {
+      flex: 1;
+      background-color: #EFF1F5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    form {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #2D2F69;
+      margin-bottom: 10px;
+    }
+
+    p.sub {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      margin-top: 15px;
+      color: #333;
+    }
+
+
+    input {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    input::placeholder {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #843af3;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    input:focus, select:focus {
+      border-color: #4ce68b !important;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      background-color: #843af3;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #4ce68b;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .link a {
+      color: #843af3;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left {
+        height: 200px;
+        position: relative;
+      }
+
+      .left::before {
+        width: 200px;
+        height: 200px;
+      }
+
+      .right {
+        padding: 20px;
+      }
+
+      form {
+        padding: 20px;
+      }
+    }
+
+    select#tipo_usuario {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="green-bar"></div>
+      <div class="left-content">
+        <h1>Bem-vindo de volta</h1>
+        <p>Acesse sua conta e continue sua jornada conosco.</p>
+      </div>
+    </div>
+
+
+
+    <div class="right">
+      <form action="login.php" method="POST">
+        <h2>👋 Seja bem-vindo de volta,<br>Faça login para continuar.</h2>
+        <p class="sub">Insira seus dados e acesse a plataforma GAD.</p>
+
+        <label for="tipo_usuario">Você está entrando como:</label>
+        <select name="tipo_usuario" id="tipo_usuario" required>
+          <option value="Cliente">Cliente</option>
+          <option value="Gestor">Gestor</option>
+        </select>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Digite seu email" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" placeholder="Digite sua senha" required>
+
+        <button type="submit">Entrar</button>
+
+        <div class="link">
+          <p>Não tem uma conta? <a href="cadastro.html">Crie aqui</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
