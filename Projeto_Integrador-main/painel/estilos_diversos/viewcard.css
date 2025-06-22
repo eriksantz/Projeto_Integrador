@@ -1,0 +1,198 @@
+/* --- INÍCIO: ESTILOS MODERNIZADOS PARA O MODAL DE VISUALIZAÇÃO --- */
+
+/* Fundo do modal (backdrop) com um desfoque sutil no conteúdo da página */
+.modal-visualizacao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 22, 0.7); /* Um preto mais suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.modal-visualizacao.visivel {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+/* Animação de entrada do conteúdo do modal */
+.modal-visualizacao.visivel .modal-visualizacao-conteudo {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-visualizacao-conteudo {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 95%;
+    max-width: 900px; /* Um pouco mais largo para mais respiro */
+    max-height: 90vh;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    /* Animação */
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* 1. CORREÇÃO: Fundo claro para a mídia, ótimo para PNGs transparentes */
+.modal-visualizacao-media {
+    flex: 1.5; /* Dá mais espaço para a imagem */
+    background-color: #f7f7f9; /* Fundo cinza bem claro, quase branco */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* Um pequeno preenchimento para a mídia não colar nas bordas */
+}
+
+/* 2. CORREÇÃO: Melhor encaixe da imagem/vídeo */
+.modal-visualizacao-media img,
+.modal-visualizacao-media video {
+    max-width: 100%;
+    max-height: calc(90vh - 2rem); /* Considera o padding do container */
+    display: block;
+    border-radius: 8px; /* Arredonda a mídia também */
+    object-fit: contain; /* Garante que a mídia inteira apareça sem distorção */
+}
+
+/* Painel de informações com melhorias visuais */
+.modal-visualizacao-info {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    border-left: 1px solid #e9ecef;
+}
+
+/* Estilo da barra de rolagem (opcional, mas elegante) */
+.modal-visualizacao-info::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-visualizacao-info::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.modal-visualizacao-info::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+.modal-visualizacao-info::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+
+.modal-visualizacao-info h2 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #212529;
+    font-weight: 700;
+}
+
+.modal-visualizacao-info p {
+    white-space: pre-wrap;
+    color: #495057;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.detalhes-lista {
+    list-style: none;
+    padding: 1.5rem 0;
+    margin: 1.5rem 0;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.detalhes-lista li {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.detalhes-lista li:last-child {
+    margin-bottom: 0;
+}
+
+.detalhes-lista li strong {
+    color: #343a40;
+}
+
+.feedback-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid #843af3;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.feedback-box h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #343a40;
+}
+
+/* 3. CORREÇÃO: Botão de fechar com hover e melhor posicionamento */
+.fechar-modal-visualizacao {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #6c757d;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.fechar-modal-visualizacao:hover {
+    background-color: #f1f3f5;
+    transform: rotate(90deg);
+}
+
+.postagem-card.visualizavel {
+    cursor: pointer;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .modal-visualizacao-conteudo {
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+    .modal-visualizacao-media {
+        flex: 0; /* Remove a flexibilidade para controlar a altura */
+        height: 50vh; /* Ocupa metade da tela */
+    }
+    .modal-visualizacao-media img,
+    .modal-visualizacao-media video {
+        max-height: calc(50vh - 2rem);
+    }
+    .fechar-modal-visualizacao {
+        top: 15px;
+        right: 15px;
+        color: #333;
+    }
+}
